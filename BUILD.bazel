@@ -4,12 +4,16 @@ package(default_visibility = ["//visibility:public"])
 
 cc_library(
     name = "boost.program_options",
+    srcs = glob([
+        "src/**/*.cpp",
+        "src/**/*.ipp",
+    ]),
     hdrs = glob([
         "include/**/*.hpp",
         "include/**/*.h",
         "include/**/*.ipp",
     ]),
-    srcs = glob(["src/**/*.cpp", "src/**/*.ipp"]),
+    defines = ["BOOST_ALL_NO_LIB"],
     includes = ["include"],
     deps = [
         "@boost.any",
